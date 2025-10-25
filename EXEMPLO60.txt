@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JORNAL CBNB</title>
+</head>
+<body>
+  <link rel="stylesheet" href="estilo20.css">
+<H1>JORNAL CBNB</H1>
+ <p align=center><button class="glow-on-hover">AGENDA ESCOLAR</button>
+<button class="glow-on-hover">PROGRAMAÇÕES</button>
+<button class="glow-on-hover">FALE CONOSCO</button></p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ <p align=center><button class="glow-on-hover">NOSSA HISTÓRIA</button>
+<button class="glow-on-hover">CADASTRO</button>
+<button class="glow-on-hover">REDES SOCIAIS</button></p>
+</body>
+<body>

@@ -1,0 +1,75 @@
+/* Fonte e layout geral */
+body {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 0 15px;
+  background-color: #f0f8f5; /* verde clarinho de fundo */
+  color: #1b3a2f; /* verde escuro para textos */
+}
+
+/* Título */
+h1 {
+  text-align: center;
+  color: #2c7a5a; /* verde médio */
+  border-bottom: 2px solid #2c7a5a;
+  padding-bottom: 10px;
+}
+
+/* Labels e inputs */
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  border: 2px solid #2c7a5a;
+  border-radius: 6px;
+  background-color: #eaf3ee; /* verde bem clarinho */
+  color: #1b3a2f;
+  font-size: 1rem;
+}
+
+/* Preview da foto */
+img {
+  max-width: 150px;
+  display: block;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 2px solid #2c7a5a;
+}
+
+/* Botões */
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+button {
+  padding: 10px 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background-color: #2c7a5a; /* verde médio */
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #1b3a2f; /* verde escuro */
+}
+
+/* Responsivo */
+@media (max-width: 500px) {
+  body { padding: 0 10px; }
+  button { width: 100%; }
+}

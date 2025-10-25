@@ -1,0 +1,16 @@
+estilo.css:
+h1 {
+color: #FFFFFF
+text-decoration: underline;
+text-transform: uppercase
+}
+h2 {
+color: #FFFFFF
+text-decoration: underline;
+text-transform: uppercase
+}
+p { 
+text-ident: 1cm;
+line-heigh:2px;
+text-align: center
+}

@@ -1,0 +1,11 @@
+elemento-referenciado {
+	border: 30px solid blue;
+	background-color: rgb(150, 215, 255);
+transition: 2s; //determina o tempo de transição para volta do estado normal font-size: 40px;
+	cursor: pointer;
+}
+elemento-referenciado:hover { //estilos que são adicionados ao passar o cursor no elemento
+border: 30px solid blue;
+background-color: rgb(150, 215, 255);
+transition: 2s;  //determina o tempo de transição para aplicação dos estilos
+}

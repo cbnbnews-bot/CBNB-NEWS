@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<TITLE>BTS</TITLE>
+<link rel= "stylesheet" type= "text/css" href= "estilo1.css" />
+</head>
+<body>
+<h1>BTS</h1>
+   <p align=center><button class="glow-on-hover" type="button"> Nossa história</button>
+<button class="glow-on-hover" type="button">Integrantes</button>
+<button class="glow-on-hover" type="button">prêmios</button></p>
+</body>
+</html>

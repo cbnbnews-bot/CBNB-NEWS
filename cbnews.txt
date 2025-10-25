@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CBNB NEWS — Notícias</title>
+  <meta name="description" content="Jornal CBNB — notícias locais e nacionais, cultura, esportes e opinião." />
+  <meta name="author" content="CBNB NEWS" />
+  <!-- Schema (básico) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsMediaOrganization",
+    "name": "CBNB NEWS",
+    "url": "https://example.com",
+    "logo": "https://via.placeholder.com/200x60?text=CBNB"
+  }
+  </script>
+  <style>
+    /* RESET simples */
+    :root{
+      --bg: #ffffff;
+      --card: #f6f7f9;
+      --text: #111827;
+      --accent: #0ea5a0; /* turquesa suave */
+      --muted: #6b7280;
+      --glass: rgba(255,255,255,0.6);
+      --max-width: 1100px;
+      --radius: 10px;
+    }
+    [data-theme="dark"]{
+      --bg: #0b1020;
+      --card: #091026;
+      --text: #e6eef6;
+      --accent: #2dd4bf;
+      --muted: #9aa6b2;
+      --glass: rgba(255,255,255,0.04);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,var(--bg),#f8fafc);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      line-height:1.45;
+      padding:24px;
+      display:flex;
+      justify-content:center;
+    }
+    .wrap{width:100%;max-width:var(--max-width);}
+
+    /* Topbar */
+    header.site-header{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:18px;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      text-decoration:none;
+      color:var(--text);
+    }
+    .brand img{height:48px;border-radius:8px;object-fit:cover}
+    .brand h1{font-size:1.05rem;margin:0}
+    .brand p{margin:0;font-size:0.85rem;color:var(--muted)}
+
+    .header-controls{display:flex;gap:10px;align-items:center}
+    .search {
+      position:relative;
+    }
+    .search input{
+      padding:8px 36px 8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,0.08);
+      background:var(--card);
+      color:var(--text);
+      width:220px;
+    }
+    .search button{
+      position:absolute;
+      right:4px;
+      top:4px;
+      bottom:4px;
+      border:0;background:transparent;padding:6px;border-radius:999px;
+      cursor:pointer;color:var(--muted)
+    }
+    .theme-toggle{
+      padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);
+      background:var(--card);cursor:pointer;
+    }
+
+    nav.main-nav{display:flex;gap:10px;margin:12px 0 22px;flex-wrap:wrap}
+    nav.main-nav a{
+      text-decoration:none;color:var(--muted);padding:8px 12px;border-radius:8px;font-weight:600;font-size:0.95rem;
+    }
+    nav.main-nav a:hover{background:var(--glass);color:var(--text)}
+
+    /* Layout */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:20px;
+      align-items:start;
+    }
+    main{
+      display:flex;flex-direction:column;gap:18px;
+    }
+
+    /* Destaque principal */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:16px;
+      background:linear-gradient(180deg,var(--card),transparent);
+      padding:14px;border-radius:var(--radius);
+      box-shadow:0 6px 18px rgba(2,6,23,0.06);
+      align-items:stretch;
+    }
+    .hero .lead{
+      display:flex;flex-direction:column;gap:8px;
+    }
+    .lead img{
+      width:100%;height:220px;object-fit:cover;border-radius:8px;
+    }
+    .lead .kicker{color:var(--accent);font-weight:700;text-transform:uppercase;font-size:0.75rem}
+    .lead h2{margin:0;font-size:1.25rem}
+    .lead p{margin:0;color:var(--muted)}
+
+    .hero .aside{
+      display:flex;flex-direction:column;gap:8px;
+    }
+    .mini-card{
+      display:flex;gap:10px;align-items:center;padding:8px;border-radius:8px;background:var(--bg);
+    }
+    .mini-card img{width:76px;height:56px;object-fit:cover;border-radius:6px}
+
+    /* Seções e cards */
+    section.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+    article.card{
+      background:var(--card);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:10px;
+      transition:transform .18s ease,box-shadow .18s ease;
+    }
+    article.card:hover{transform:translateY(-6px);box-shadow:0 12px 26px rgba(2,6,23,0.08)}
+    .card img{width:100%;height:150px;object-fit:cover;border-radius:8px}
+    .card .meta{font-size:0.78rem;color:var(--muted)}
+    .card h3{margin:0;font-size:1.02rem}
+    .card p{margin:0;color:var(--muted);font-size:0.95rem}
+
+    /* Sidebar */
+    aside.sidebar{display:flex;flex-direction:column;gap:12px;position:relative}
+    .widget{background:var(--card);border-radius:8px;padding:12px}
+    .trending li{list-style:none;padding:8px 0;border-bottom:1px dashed rgba(0,0,0,0.04);font-weight:600}
+    .subscribe input{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);margin-bottom:8px}
+
+    /* Footer */
+    footer.site-footer{margin-top:22px;padding:18px;border-radius:10px;background:linear-gradient(180deg,var(--card),transparent);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    footer small{color:var(--muted)}
+
+    /* Responsivo */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .brand img{height:40px}
+    }
+    @media (max-width:520px){
+      .search input{width:140px}
+      .card img{height:120px}
+      body{padding:14px}
+    }
+
+    /* Acessibilidade/visuais */
+    a{color:inherit}
+    .sr-only{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+  </style>
+</head>
+<body>
+  <div class="wrap" id="site" aria-live="polite">
+    <header class="site-header" role="banner">
+      <a class="brand" href="#" aria-label="Jornal CBNB - página inicial">
+        <img src="https://via.placeholder.com/160x48?text=CBNB" alt="Logo Jornal CBNB" />
+        <div>
+          <h1>Jornal CBNB</h1>
+          <p>Notícias que importam — local e nacional</p>
+        </div>
+      </a>
+
+      <div class="header-controls" role="search">
+        <div class="search" aria-hidden="false">
+          <label for="q" class="sr-only">Pesquisar notícias</label>
+          <input id="q" type="search" placeholder="Pesquisar..." aria-label="Pesquisar notícias" />
+          <button id="btnSearch" title="Pesquisar" aria-label="Pesquisar">🔎</button>
+        </div>
+
+        <button class="theme-toggle" id="themeToggle" aria-pressed="false" title="Alternar tema">🌙</button>
+      </div>
+    </header>
+
+    <nav class="main-nav" role="navigation" aria-label="Seções do site">
+      <a href="#noticias">Notícias</a>
+      <a href="#cultura">Cultura</a>
+      <a href="#esportes">Esportes</a>
+      <a href="#opiniao">Opinião</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="grid">
+      <main>
+        <!-- HERO / Destaque -->
+        <section class="hero" aria-label="Destaques">
+          <div class="lead">
+            <span class="kicker">Destaque</span>
+            <img src="https://via.placeholder.com/1000x600?text=Destaque+Principal" alt="Foto destaque principal" loading="lazy" />
+            <h2>Transformação na cidade: obra do centro histórico é entregue após reforma</h2>
+            <p>Depois de 8 meses de trabalhos, a recuperação do centro histórico promete atrair mais visitantes e fomentar o comércio local.</p>
+            <small class="meta">por Redação • 28 de setembro de 2025</small>
+          </div>
+
+          <aside class="aside" aria-label="Mais notícias em destaque">
+            <div class="mini-card" role="article">
+              <img src="https://via.placeholder.com/160x110?text=Educação" alt="Imagem sobre educação" loading="lazy" />
+              <div>
+                <div class="meta">Educação</div>
+                <h4 style="margin:6px 0 0;font-size:0.95rem">Escolas públicas recebem novos materiais didáticos</h4>
+              </div>
+            </div>
+
+            <div class="mini-card" role="article">
+              <img src="https://via.placeholder.com/160x110?text=Saúde" alt="Imagem sobre saúde" loading="lazy" />
+              <div>
+                <div class="meta">Saúde</div>
+                <h4 style="margin:6px 0 0;font-size:0.95rem">Campanha de vacinação alcança meta este mês</h4>
+              </div>
+            </div>
+
+            <div class="mini-card" role="article">
+              <img src="https://via.placeholder.com/160x110?text=Cultura" alt="Imagem sobre cultura" loading="lazy" />
+              <div>
+                <div class="meta">Cultura</div>
+                <h4 style="margin:6px 0 0;font-size:0.95rem">Festival de música retorna com atrações locais</h4>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <!-- Seções com cards -->
+        <section id="noticias" aria-label="Seção de notícias">
+          <h2 style="margin:0 0 10px">Últimas notícias</h2>
+          <div class="cards" role="list">
+            <article class="card" role="listitem" aria-labelledby="n1">
+              <img src="https://via.placeholder.com/600x400?text=Política" alt="Notícia política" loading="lazy" />
+              <div class="meta">Política • 28/09/2025</div>
+              <h3 id="n1">Assembleia aprova novas regras para transparência pública</h3>
+              <p>Medidas visam fortalecer controle social sobre contratos e obras públicas.</p>
+              <a href="#" aria-label="Ler mais: Assembleia aprova novas regras">Ler mais →</a>
+            </article>
+
+            <article class="card" role="listitem" aria-labelledby="n2">
+              <img src="https://via.placeholder.com/600x400?text=Economia" alt="Notícia economia" loading="lazy" />
+              <div class="meta">Economia • 27/09/2025</div>
+              <h3 id="n2">Comércio local registra aumento nas vendas do mês</h3>
+              <p>Empresários comemoram aquecimento das vendas após o retorno do turismo.</p>
+              <a href="#">Ler mais →</a>
+            </article>
+
+            <article class="card" role="listitem" aria-labelledby="n3">
+              <img src="https://via.placeholder.com/600x400?text=Meio+Ambiente" alt="Notícia meio ambiente" loading="lazy" />
+              <div class="meta">Meio Ambiente • 26/09/2025</div>
+              <h3 id="n3">Projeto de reflorestamento atinge 10 mil árvores plantadas</h3>
+              <p>Voluntários e escolas locais participaram da ação de recuperação de áreas verdes.</p>
+              <a href="#">Ler mais →</a>
+            </article>
+
+            <article class="card" role="listitem" aria-labelledby="n4">
+              <img src="https://via.placeholder.com/600x400?text=Tecnologia" alt="Notícia tecnologia" loading="lazy" />
+              <div class="meta">Tecnologia • 25/09/2025</div>
+              <h3 id="n4">Startups locais recebem investimento-anjo</h3>
+              <p>Novos aportes incentivam desenvolvimento de soluções sustentáveis.</p>
+              <a href="#">Ler mais →</a>
+            </article>
+          </div>
+        </section>
+
+        <!-- Cultura e Esportes -->
+        <section id="cultura" style="margin-top:10px">
+          <h2 style="margin:0 0 10px">Cultura</h2>
+          <div class="cards">
+            <article class="card">
+              <img src="https://via.placeholder.com/600x400?text=Teatro" alt="Teatro local" loading="lazy" />
+              <div class="meta">Cultura • 24/09/2025</div>
+              <h3>Peça local estreia com casa cheia</h3>
+              <p>Espetáculo aborda histórias da cidade com elenco jovem.</p>
+              <a href="#">Ler mais →</a>
+            </article>
+
+            <article class="card">
+              <img src="https://via.placeholder.com/600x400?text=Artes" alt="Artes" loading="lazy" />
+              <div class="meta">Cultura • 23/09/2025</div>
+              <h3>Exposição reúne artistas contemporâneos da região</h3>
+              <p>Mostra fica aberta ao público até o fim do mês.</p>
+              <a href="#">Ler mais →</a>
+            </article>
+          </div>
+        </section>
+
+        <section id="esportes" style="margin-top:10px">
+          <h2 style="margin:0 0 10px">Esportes</h2>
+          <div class="cards">
+            <article class="card">
+              <img src="https://via.placeholder.com/600x400?text=Futebol" alt="Futebol" loading="lazy" />
+              <div class="meta">Esportes • 28/09/2025</div>
+              <h3>Time local conquista vitória importante</h3>
+              <p>Partida decisiva teve grande público e cobertura especial.</p>
+              <a href="#">Ler mais →</a>
+            </article>
+            <article class="card">
+              <img src="https://via.placeholder.com/600x400?text=Atletismo" alt="Atletismo" loading="lazy" />
+              <div class="meta">Esportes • 22/09/2025</div>
+              <h3>Atletas locais se destacam em campeonato regional</h3>
+              <p>Medalhas e recordes pessoais marcam desempenho da delegação.</p>
+              <a href="#">Ler mais →</a>
+            </article>
+          </div>
+        </section>
+
+        <footer class="site-footer" role="contentinfo">
+          <div>
+            <strong>Jornal CBNB</strong>
+            <div style="margin-top:8px"><small>Rua Exemplo, 123 — Centro • CEP 00000-000</small></div>
+          </div>
+          <div style="text-align:right">
+            <small>© 2025 Jornal CBNB — Todos os direitos reservados</small>
+            <div style="margin-top:8px"><a href="#contato">Fale conosco</a> • <a href="#assinatura">Assine</a></div>
+          </div>
+        </footer>
+      </main>
+
+      <aside class="sidebar" aria-label="Barra lateral">
+        <div class="widget" aria-labelledby="wt1">
+          <h3 id="wt1" style="margin:0 0 8px">Mais lidas</h3>
+          <ol class="trending" style="padding-left:14px;margin:0">
+            <li><a href="#">Reforma da praça central completa 1 ano</a></li>
+            <li><a href="#">Como economizar na conta de luz: 10 dicas</a></li>
+            <li><a href="#">Roteiro de fim de semana: 5 sugestões</a></li>
+          </ol>
+        </div>
+
+        <div class="widget subscribe" aria-labelledby="wt2">
+          <h3 id="wt2" style="margin:0 0 8px">Assine nossa newsletter</h3>
+          <p style="margin:0 0 10px;color:var(--muted)">Receba os principais destaques no seu e-mail.</p>
+          <label for="email" class="sr-only">Seu e-mail</label>
+          <input id="email" type="email" placeholder="seu@exemplo.com" aria-label="E-mail para assinatura" />
+          <button id="btnSubscribe" style="width:100%;padding:10px;border-radius:8px;border:0;background:var(--accent);color:#fff;font-weight:700;cursor:pointer">Assinar</button>
+        </div>
+
+        <div class="widget" aria-labelledby="wt3">
+          <h3 id="wt3" style="margin:0 0 8px">Sobre</h3>
+          <p style="margin:0;color:var(--muted)">Jornal CBNB traz notícias locais com olhar humano e apurado. Projetado para ser claro, rápido e acessível — para leitores de todas as idades.</p>
+        </div>
+
+        <div class="widget" aria-labelledby="wt4">
+          <h3 id="wt4" style="margin:0 0 8px">Siga-nos</h3>
+          <div style="display:flex;gap:8px">
+            <a href="#" aria-label="Siga no Instagram">Instagram</a>
+            <a href="#" aria-label="Siga no Facebook">Facebook</a>
+            <a href="#" aria-label="Siga no X (Twitter)">X</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    // Modo tema (persistido no localStorage)
+    (function(){
+      const site = document.getElementById('site');
+      const btn = document.getElementById('themeToggle');
+      const stored = localStorage.getItem('cbnb-theme');
+      if(stored === 'dark') {
+        document.documentElement.setAttribute('data-theme','dark');
+        btn.textContent = '☀';
+        btn.setAttribute('aria-pressed','true');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        btn.textContent = '🌙';
+        btn.setAttribute('aria-pressed','false');
+      }
+
+      btn.addEventListener('click', ()=>{
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if(isDark){
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('cbnb-theme','light');
+          btn.textContent = '🌙';
+          btn.setAttribute('aria-pressed','false');
+        } else {
+          document.documentElement.setAttribute('data-theme','dark');
+          localStorage.setItem('cbnb-theme','dark');
+          btn.textContent = '☀';
+          btn.setAttribute('aria-pressed','true');
+        }
+      });
+    })();
+
+    // Busca simples (filtra títulos e descrições mostrados)
+    (function(){
+      const q = document.getElementById('q');
+      const btn = document.getElementById('btnSearch');
+      function doSearch() {
+        const term = q.value.trim().toLowerCase();
+        if(!term){ window.scrollTo({top:0,behavior:'smooth'}); return }
+        // Realça resultados: aqui apenas faz um scroll para o primeiro card que contenha o termo
+        const cards = [...document.querySelectorAll('article.card')];
+        const found = cards.find(c => {
+          return (c.innerText || '').toLowerCase().includes(term);
+        });
+        if(found){
+          found.scrollIntoView({behavior:'smooth',block:'center'});
+          found.style.outline = '3px solid rgba(13,148,136,0.12)';
+          setTimeout(()=>found.style.outline='none',2200);
+        } else {
+          alert('Nenhuma notícia encontrada para: ' + term);
+        }
+      }
+      btn.addEventListener('click', doSearch);
+      q.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') doSearch() });
+    })();
+
+    // Assinatura (simulação)
+    (function(){
+      const btn = document.getElementById('btnSubscribe');
+      const email = document.getElementById('email');
+      btn.addEventListener('click', ()=>{
+        const val = (email.value || '').trim();
+        if(!val || !val.includes('@')) {
+          alert('Digite um e-mail válido para assinar.');
+          return;
+        }
+        // Aqui você integraria com backend — por enquanto, feedback simples
+        btn.textContent = 'Obrigado!';
+        btn.disabled = true;
+        email.value = '';
+      });
+    })();
+
+    // Melhorias de acessibilidade: foco visível ao navegar por teclado
+    (function(){
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Tab') document.body.classList.add('user-is-tabbing');
+      });
+    })();
+  </script>
+</body>
+</html>

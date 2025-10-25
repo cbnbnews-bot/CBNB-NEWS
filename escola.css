@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CBNB NEWS — Notícias da Nossa Escola</title>
+  <meta name="description" content="Jornal escolar com notícias, colunas, entrevistas e eventos da comunidade escolar." />
+  <link rel="stylesheet" href="trabalho.css">
+</head>
+<body>
+  <header>
+    <div class="wrap header-wrap">
+      <div class="brand">
+        <div class="logo">CBNB</div>
+        <div>
+          <div class="brand-title">CBNB NEWS</div>
+          <div class="brand-subtitle">ESCOLA BATISTA NOVA BETÂNIA</div>
+        </div>
+      </div>
+      <nav aria-label="Navegação principal">
+        <a href="#Início">Início</a>
+        <a href="#noticias">Notícias</a>
+        <a href="#reportagens">Reportagens</a>
+        <a href="#colunas">Colunas</a>
+        <a href="#contato">Contato</a>
+        <a href=login.html>Perfil</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="lead card">
+        <div class="kicker">Edição — Outubro 2025</div>
+        <h1>Dia das crianças</h1>
+        <p>Apresentações de música e dança envolveram alunos de todas as séries. Conheça os ganhadores, entrevistas e os bastidores do evento.</p>
+        <div class="actions">
+          <button class="btn">Ler matéria</button>
+          <a href="#galeria" class="action-link">Ver fotos →</a>
+        </div>
+      </div>
+
+      <aside class="aside-hero">
+        <div class="card center">
+          <div class="kicker">Últimas notícias</div>
+          <ul class="news-list">
+            <li><a href="#">Matrículas Abertas</a></li>
+            <li><a href="#">Técnico de Informática</a></li>
+            <li><a href="#">Semana do Meio Ambiente</a></li>
+          </ul>
+        </div>
+<br>
+        <div class="card newsletter">
+          <div class="kicker">Assine</div>
+          <p>Receba as principais matérias.</p>
+          <form onsubmit="event.preventDefault();alert('Inscrição concluída')">
+            <input type="email" placeholder="seu@email.com" required />
+            <button class="btn">Assinar</button>
+          </form>
+        </div>
+      </aside>
+    </section>
+
+    <section id="noticias" class="grid">
+      <div>
+        <div class="section-header">
+          <h2>Destaques</h2>
+          <a href="#" class="kicker">Ver tudo</a>
+
+        </div>
+
+        <div class="articles">
+          <article class="card">
+            <div class="meta">07/09/2025 • Cultura</div>
+            <h3>Alunos cantam o Hino Nacional em pró do 7 de setembro</h3>
+            <p class="muted">7 de setembro é o Dia da Independência do Brasil, um feriado nacional. </p>
+            <p><a href="#">Ler mais →</a></p>
+          </article>
+
+          <article class="card">
+            <div class="meta">20/09/2025 • Esporte</div>
+            <h3>Jogos de Invernos CBNB 2025</h3>
+            <p class="muted">O time roxo ganha o primeiro Jogos de Invernos CBNB 2025.</p>
+            <p><a href="#">Ler mais →</a></p>
+          </article>
+
+          <article class="card">
+            <div class="meta">15/09/2025 • Educação</div>
+            <h3>Oficinas de programação para iniciantes</h3>
+            <p class="muted">Turmas extra-curriculares com foco em lógica e robótica.</p>
+            <p><a href="#">Ler mais →</a></p>
+          </article>
+
+          <article class="card">
+            <div class="meta">10/09/2025 • Social</div>
+            <h3>Professores fazem atividades sobre o Setembro amarelo</h3>
+            <p class="muted">As atividades foram incentivadas pela coordenação da escola.</p>
+            <p><a href="#">Ler mais →</a></p>
+          </article>
+        </div>
+
+        <section id="reportagens" class="reportagem">
+          <h3>Reportagem Especial</h3>
+          <div class="card">
+            <h4>Como o jornal escolar mudou a rotina de alguns alunos</h4>
+            <p class="muted">Entrevistas com ex-integrantes da redação, professores e coordenadores sobre o impacto do projeto.</p>
+            <p><a href="#">Ler reportagem completa →</a></p>
+          </div>
+        </section>
+      </div>
+
+      <aside class="sidebar">
+        <div class="card widget">
+          <h4>Coluna do mês</h4>
+          <p class="muted">Uma reflexão de um estudante-editor sobre protagonismo juvenil e participação na escola.</p>
+          <p><a href="#colunas">Ler coluna →</a></p>
+        </div>
+
+        <div class="card widget">
+          <h4>Participe</h4>
+          <p class="muted">Envie suas matérias, sugestões de pauta, fotos e desenhos para o e-mail: <strong>cbnbnews@gmail.com</strong></p>
+        </div>
+
+        <div class="card widget">
+          <h4>Eventos</h4>
+          <ul class="muted">
+            <li>12/10/2025 — Dia das crianças</li>
+            <li>21/10/2025 — Passeio escolar</li>
+            <li>05/11/2025 — 1° Simulado</li>
+            <a href="#" class="kicker">Ver tudo</a>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <section id="galeria" class="galeria">
+      <h2>Galeria</h2>
+      <div class="galeria-grid">
+    <p align=center><a href="C:\Users\User\Desktop\Michigan\trabalhos\foto1.png"  <div class="card center"><img src="C:\Users\User\Desktop\Michigan\trabalhos\foto1.png" width="200"></div></a>
+    <p align=center>Mês de prevenção ao suicídio! </p>
+    <p align=center><a href="C:\Users\User\Desktop\Michigan\trabalhos\foto2.png"  <div class="card center"><img src="C:\Users\User\Desktop\Michigan\trabalhos\foto2.png" width="200"></div></a>
+    <p align=center> Alunos do Ensino Médio realizam trabalhos de Biologia</p>
+    <p align=center><a href="C:\Users\User\Desktop\Michigan\trabalhos\foto3.png"  <div class="card center"><img src="C:\Users\User\Desktop\Michigan\trabalhos\foto3.png"> </div></a></p>
+    <p align=center> A equipe roxa vence os Jogos de Inverno! </p>
+      </div>
+    </section>
+
+    <section id="contato" class="contato">
+      <h2>Contato e envio de matérias</h2>
+      <div class="card contato-box">
+        <form class="contato-form" onsubmit="event.preventDefault();alert('Mensagem enviada')">
+          <label>Nome</label>
+          <input required />
+          <label>Email</label>
+          <input type="email" required />
+          <label>Feedback / Matéria</label>
+          <textarea required></textarea>
+          <button class="btn">Enviar</button>
+        </form>
+
+        <div class="contato-info">
+          <h4>Informações</h4>
+          <p class="muted">E-mail: <strong>cbnbnews@gmail.com</strong></p>
+          <p class="muted">Telefone: (21) 97358-7135</p>
+          <p class="muted">Secretaria: Segunda a Sexta, 07:30 às 17:30</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-wrap">
+      <div>
+        <strong>CBNB NEWS</strong>
+        <div class="footer-copy">© 2025 — CBNB</div>
+      </div>
+      <div class="footer-note">Feito por alunas do técnico — <a href="#">saiba mais</a></div>
+    </div>
+  </footer>
+</body>
+</html>

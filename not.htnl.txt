@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CBNB NEWS — Biblioteca recebe doação de 200 livros</title>
+  <meta name="description" content="Detalhes sobre a doação de 200 livros feita para a biblioteca da escola." />
+  <link rel="stylesheet" href="manteiga.css">
+</head>
+<body>
+  <header>
+    <div class="wrap header-wrap">
+      <div class="brand">
+        <div class="logo">CBNB</div>
+        <div>
+          <div class="brand-title">CBNB NEWS</div>
+          <div class="brand-subtitle">ESCOLA BATISTA NOVA BETÂNIA</div>
+        </div>
+      </div>
+      <nav aria-label="Navegação principal">
+        <a href="index.html#Início">Início</a>
+        <a href="index.html#noticias">Notícias</a>
+        <a href="index.html#reportagens">Reportagens</a>
+        <a href="index.html#colunas">Colunas</a>
+        <a href="index.html#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <article class="noticia-detalhe card">
+      <div class="meta">28/09/2025 • Notícia</div>
+      <h1>Biblioteca recebe doação de 200 livros</h1>
+      <p class="muted">A iniciativa foi coordenada por professores e envolveu voluntários da comunidade escolar.</p>
+
+      <div class="conteudo">
+        <p>A Biblioteca CBNB acaba de receber uma importante doação: 200 novos livros de literatura, ciência e história. A ação contou com o apoio de pais, ex-alunos e professores, que se mobilizaram em uma campanha interna.</p>
+
+        <p>De acordo com a coordenação pedagógica, os livros serão catalogados e disponibilizados aos alunos já no próximo mês. "Nosso objetivo é ampliar o acesso à leitura e estimular o hábito entre os estudantes", destacou a professora Ana Paula, responsável pelo projeto.</p>
+
+        <p>Entre os títulos recebidos estão clássicos da literatura brasileira, obras de autores contemporâneos e enciclopédias ilustradas. A direção agradeceu a todos os envolvidos e anunciou que pretende realizar novas campanhas de incentivo à leitura.</p>
+
+        <figure>
+          <img src="imagens/biblioteca.jpg" alt="Alunos organizando livros na biblioteca">
+          <figcaption>Estudantes ajudando na organização dos livros recebidos.</figcaption>
+        </figure>
+
+        <p>Além disso, a equipe editorial do CBNB NEWS estará preparando uma coluna especial com recomendações de leitura indicadas por professores e alunos.</p>
+      </div>
+
+      <div class="voltar">
+        <a href="index.html#noticias">← Voltar para início</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap footer-wrap">
+      <div>
+        <strong>CBNB NEWS</strong>
+        <div class="footer-copy">© 2025 — CBNB</div>
+      </div>
+      <div class="footer-note">Feito por alunas do técnico — <a href="#">saiba mais</a></div>
+    </div>
+  </footer>
+</body>
+</html>
